@@ -29,6 +29,6 @@ window.onload = function() {
     
     function update() 
     {
-        this.background.tilePosition.y -= 1;
+        this.background.tilePosition.y -= 3;
     }
 };
