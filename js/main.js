@@ -27,8 +27,10 @@ window.onload = function() {
     
     function create() 
     {
+    	game.physics.startSystem(Phaser.Physics.ARCADE);
         this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
         this.player = game.add.sprite(400, game.world.height - 80, 'car');
+        game.physics.arcade.enable(player);
     }
     
     function update() 
