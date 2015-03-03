@@ -29,7 +29,7 @@ window.onload = function() {
     {
     	this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
-        this.player = game.add.sprite(400, game.world.height - 80, 'car');
+        this.player = game.add.sprite(400, game.world.height - 160, 'car');
         this.game.physics.arcade.enable(this.player);
         cursors = game.input.keyboard.createCursorKeys();
     }
