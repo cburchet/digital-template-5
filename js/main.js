@@ -18,7 +18,7 @@ window.onload = function() {
     var background;
     function preload() 
     {
-        this.game.load.image('road', 'assets/road.png');
+        this.game.load.image('road', 'assets/road.jpg');
     }
     
     
