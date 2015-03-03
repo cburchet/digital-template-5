@@ -42,12 +42,12 @@ window.onload = function() {
 		if (cursors.left.isDown)
 		{
 			//  Move to the left
-			this.player.body.velocity.x = -150;
+			this.player.body.velocity.x = -250;
 		}
 		else if (cursors.right.isDown)
 		{
 			//  Move to the right
-			this.player.body.velocity.x = 150;
+			this.player.body.velocity.x = 250;
 		}
     }
 };
