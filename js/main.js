@@ -16,19 +16,35 @@ window.onload = function() {
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     var background;
+    var player;
+    var cursors;
     function preload() 
     {
         this.game.load.image('road', 'assets/road.jpg');
+        this.game.load.image('car', 'assets/car.png');
     }
     
     
     function create() 
     {
         this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
+        this.player = game.add.sprite(400, game.world.height - 80, 'car');
     }
     
     function update() 
     {
         this.background.tilePosition.y += 3;
+        player.body.velocity.x = 0;
+	 
+		if (cursors.left.isDown)
+		{
+			//  Move to the left
+			player.body.velocity.x = -150;
+		}
+		else if (cursors.right.isDown)
+		{
+			//  Move to the right
+			player.body.velocity.x = 150;
+		}
     }
 };
