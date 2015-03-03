@@ -24,7 +24,8 @@ window.onload = function() {
     
     function create() 
     {
-        this.background = this.game.add.tileSprite(0, 0, 600, 800, 'road');
+        this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
+        background.resizeWorld();
     }
     
     function update() {
