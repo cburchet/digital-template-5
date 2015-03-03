@@ -13,7 +13,7 @@ window.onload = function() {
     
     "use strict";
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 1000, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
     var background;
     var player;
@@ -28,7 +28,7 @@ window.onload = function() {
     function create() 
     {
     	this.game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
+        this.background = this.game.add.tileSprite(0, 0, 1000, 600, 'road');
         this.player = game.add.sprite(400, game.world.height - 160, 'car');
         this.game.physics.arcade.enable(this.player);
         cursors = game.input.keyboard.createCursorKeys();
@@ -42,12 +42,12 @@ window.onload = function() {
 		if (cursors.left.isDown)
 		{
 			//  Move to the left
-			this.player.body.velocity.x = -250;
+			this.player.body.velocity.x = -300;
 		}
 		else if (cursors.right.isDown)
 		{
 			//  Move to the right
-			this.player.body.velocity.x = 250;
+			this.player.body.velocity.x = 300;
 		}
     }
 };
