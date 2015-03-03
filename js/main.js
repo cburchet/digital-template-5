@@ -27,26 +27,26 @@ window.onload = function() {
     
     function create() 
     {
-    	game.physics.startSystem(Phaser.Physics.ARCADE);
+    	this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
         this.player = game.add.sprite(400, game.world.height - 80, 'car');
-        game.physics.arcade.enable(player);
+        this.game.physics.arcade.enable(player);
     }
     
     function update() 
     {
         this.background.tilePosition.y += 3;
-        player.body.velocity.x = 0;
+        this.player.body.velocity.x = 0;
 	 
 		if (cursors.left.isDown)
 		{
 			//  Move to the left
-			player.body.velocity.x = -150;
+			this.player.body.velocity.x = -150;
 		}
 		else if (cursors.right.isDown)
 		{
 			//  Move to the right
-			player.body.velocity.x = 150;
+			this.player.body.velocity.x = 150;
 		}
     }
 };
