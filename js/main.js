@@ -25,9 +25,10 @@ window.onload = function() {
     function create() 
     {
         this.background = this.game.add.tileSprite(0, 0, 800, 600, 'road');
-        background.resizeWorld();
     }
     
-    function update() {
+    function update() 
+    {
+        background.tilePosition.y -= 1;
     }
 };
