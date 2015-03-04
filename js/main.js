@@ -45,7 +45,7 @@ window.onload = function() {
 	playerEngine.volume = .1;
 	playerEngine.play();
         
-        cursors = game.input.keyboard.createCursorKeys();
+        cursors = game.input.keyboard.createCursorKeys('', 0, 1, true);
         
         cars = game.add.group();
         cars.enableBody = true;
