@@ -42,7 +42,7 @@ window.onload = function() {
         cars = game.add.group();
         cars.enableBody = true;
         
-        game.time.events.loop(Phaser.Timer.SECOND * 3, createCar, this);
+        game.time.events.loop(Phaser.Timer.SECOND * 2, createCar, this);
     }
     
     function update() 
