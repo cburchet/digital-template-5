@@ -64,7 +64,7 @@ window.onload = function() {
     
     function createCar()
     {
-    	var carColor = game.rnd.integerInRange(0,3);
+    	var carColor = game.rnd.integerInRange(0,2);
     	if (carColor == 0)
     	{
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'redcar');
