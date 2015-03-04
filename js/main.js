@@ -43,9 +43,9 @@ window.onload = function() {
         this.game.physics.arcade.enable(this.player);
         playerEngine = game.add.audio('carEngine');
 	playerEngine.volume = .1;
-	playerEngine.play();
+	playerEngine.play('', 0, 1, true);
         
-        cursors = game.input.keyboard.createCursorKeys('', 0, 1, true, true);
+        cursors = game.input.keyboard.createCursorKeys();
         
         cars = game.add.group();
         cars.enableBody = true;
