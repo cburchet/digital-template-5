@@ -77,6 +77,6 @@ window.onload = function() {
     	{
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'greencar');
     	}
-    	badCars.body.gravity.y = 100;
+    	badCars.body.gravity.y = 10;
     }
 };
