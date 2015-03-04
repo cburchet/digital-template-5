@@ -17,6 +17,8 @@ window.onload = function() {
     
     var background;
     var player;
+    var playerEngine;
+    
     var cursors;
     
     var badCars;
@@ -28,6 +30,7 @@ window.onload = function() {
         this.game.load.image('redcar', 'assets/redbadcar.png');
         this.game.load.image('bluecar', 'assets/bluebadcar.png');
         this.game.load.image('greencar', 'assets/greenbadcar.png');
+        this.game.load.audio('carEngine', 'assets/carEngine.wav');
     }
     
     
@@ -35,14 +38,22 @@ window.onload = function() {
     {
     	this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.background = this.game.add.tileSprite(0, 0, 1000, 600, 'road');
+        
         this.player = game.add.sprite(400, game.world.height - 160, 'car');
         this.game.physics.arcade.enable(this.player);
+        playerEngine = game.add.audio('pressure');
+	playerEngine.volume = .3;
+	playerEngine.play();
+        
         cursors = game.input.keyboard.createCursorKeys();
         
         cars = game.add.group();
         cars.enableBody = true;
         
+        
         game.time.events.loop(Phaser.Timer.SECOND * 2, createCar, this);
+        
+        
     }
     
     function update() 
