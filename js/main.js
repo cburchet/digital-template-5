@@ -18,10 +18,16 @@ window.onload = function() {
     var background;
     var player;
     var cursors;
+    
+    var badCars;
+    var cars;
     function preload() 
     {
         this.game.load.image('road', 'assets/road.jpg');
         this.game.load.image('car', 'assets/car.png');
+        this.game.load.image('redcar', 'assets/redbadcar.png');
+        this.game.load.image('bluecar', 'assets/bluebadcar.png');
+        this.game.load.image('greencar', 'assets/greenbadcar.png');
     }
     
     
@@ -32,6 +38,11 @@ window.onload = function() {
         this.player = game.add.sprite(400, game.world.height - 160, 'car');
         this.game.physics.arcade.enable(this.player);
         cursors = game.input.keyboard.createCursorKeys();
+        
+        cars = game.add.group();
+        cars.enableBody = true;
+        
+        game.time.events.loop(Phaser.Timer.SECOND * 3, createCar, this);
     }
     
     function update() 
@@ -49,5 +60,23 @@ window.onload = function() {
 			//  Move to the right
 			this.player.body.velocity.x = 300;
 		}
+    }
+    
+    function createCar()
+    {
+    	var carColor = game.rnd.integerInRange(0,3);
+    	if (carColor == 0)
+    	{
+    		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'redcar');
+    	}
+    	else if (carColor == 1)
+    	{
+    		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'bluecar');
+    	}
+    	else if (carColor == 2)
+    	{
+    		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'greencar');
+    	}
+    	badCars.body.gravity.y = 10;
     }
 };
