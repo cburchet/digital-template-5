@@ -131,7 +131,7 @@ window.onload = function() {
     	{
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'greencar');
     	}
-    	badCars.body.gravity.y = speed + (score *.25);
+    	badCars.body.gravity.y = speed + (score *5);
     }
     
     function delay()
