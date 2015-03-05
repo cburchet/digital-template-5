@@ -139,7 +139,8 @@ window.onload = function() {
 		playerCrash = game.add.audio('crash');
 		playerCrash.volume = .2;
 		playerCrash.play();
-		game.add.tween(player.angle).to( {angle: 45}, 2000, Phaser.Easing.Linear.None, false,0, 0, false);
+		player.body.gravity.y = 50;
+		player.body.angle = -45;
 		game.time.events.add(Phaser.Timer.SECOND * 3, gameOver, this).autoDestroy = true;
 	}
     
