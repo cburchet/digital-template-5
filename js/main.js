@@ -75,6 +75,7 @@ window.onload = function() {
         
         scoreText = game.add.text(0, 0, 'Score: ' + score, { font: "40px Arial", fill: 'red' });
         game.debug.body(candy);
+        game.debug.body(player);
     }
     
     function update() 
