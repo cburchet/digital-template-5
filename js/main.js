@@ -128,31 +128,44 @@ window.onload = function() {
     	for (i; i > 0; i--)
     	{
     		var carColor = game.rnd.integerInRange(0,2);
+    		var carX = game.rnd.integerInRange(0,750);
     		if (carColor = 0)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'redcar');	
+    			badCars = cars.create(carX, game.rnd.integerInRange(75, 300) * -1, 'redcar');	
     		}
     		else if (carColor = 1)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'bluecar');
+    			badCars = cars.create(carX, game.rnd.integerInRange(75, 300) * -1, 'bluecar');
     		}
     		else if (carColor = 2)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'greencar')
+    			badCars = cars.create(carX, game.rnd.integerInRange(75, 300) * -1, 'greencar')
     		}
     		var rockX = game.rnd.integerInRange(0,750);
-    		obstacle = obstacles.create(rockX, game.rnd.integerInRange(75, 200) * -1, 'greencar');
+    		obstacle = obstacles.create(rockX, game.rnd.integerInRange(75, 200) * -1, 'rock');
     		if (rockX < 300)
     		{
-    			obstacle.body.velocity.x = 15;
+    			obstacle.body.velocity.x = game.rnd.integerInRange(5, 15);
     		}
     		else if (rockX > 600)
     		{
-    			obstacle.body.velocity.x = -15;
+    			obstacle.body.velocity.x = game.rnd.integerInRange(-5, -15);
     		}
     		else 
     		{
-    			obstacle.body.velocity.x = 3;
+    			obstacle.body.velocity.x = game.rnd.integerInRange(-3, 3);
+    		}
+    		if (carX < 300)
+    		{
+    			obstacle.body.velocity.x = game.rnd.integerInRange(5, 15);
+    		}
+    		else if (carX > 600)
+    		{
+    			obstacle.body.velocity.x = game.rnd.integerInRange(-5, -15);
+    		}
+    		else 
+    		{
+    			carX.body.velocity.x = game.rnd.integerInRange(-3, 3);
     		}
     		obstacle.body.gravity.y = speed + (score * .5);
     		badCars.body.gravity.y = speed + (score *.5);
