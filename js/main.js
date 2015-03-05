@@ -145,27 +145,27 @@ window.onload = function() {
     		obstacle = obstacles.create(rockX, game.rnd.integerInRange(75, 200) * -1, 'rock');
     		if (rockX < 300)
     		{
-    			obstacle.body.velocity.x = game.rnd.integerInRange(5, 15);
+    			obstacle.body.velocity.x = game.rnd.integerInRange(10, 25);
     		}
     		else if (rockX > 600)
     		{
-    			obstacle.body.velocity.x = game.rnd.integerInRange(-5, -15);
+    			obstacle.body.velocity.x = game.rnd.integerInRange(-10, -25);
     		}
     		else 
     		{
-    			obstacle.body.velocity.x = game.rnd.integerInRange(-3, 3);
+    			obstacle.body.velocity.x = game.rnd.integerInRange(-8, 8);
     		}
     		if (carX < 300)
     		{
-    			badCars.body.velocity.x = game.rnd.integerInRange(5, 15);
+    			badCars.body.velocity.x = game.rnd.integerInRange(10, 25);
     		}
     		else if (carX > 600)
     		{
-    			badCars.body.velocity.x = game.rnd.integerInRange(-5, -15);
+    			badCars.body.velocity.x = game.rnd.integerInRange(-10, -25);
     		}
     		else 
     		{
-    			badCars.body.velocity.x = game.rnd.integerInRange(-3, 3);
+    			badCars.body.velocity.x = game.rnd.integerInRange(-8, 8);
     		}
     		obstacle.body.gravity.y = speed + (score * .5);
     		badCars.body.gravity.y = speed + (score *.5);
