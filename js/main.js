@@ -15,6 +15,19 @@ window.onload = function() {
     
     var game = new Phaser.Game( 1000, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
     
+    
+    function preload() 
+    {
+        this.game.load.image('road', 'assets/road.jpg');
+        this.game.load.image('car', 'assets/car.png');
+        this.game.load.image('candy', 'assets/candycane.png');
+        this.game.load.image('redcar', 'assets/redbadcar.png');
+        this.game.load.image('bluecar', 'assets/bluebadcar.png');
+        this.game.load.image('greencar', 'assets/greenbadcar.png');
+        this.game.load.audio('carEngine', 'assets/carEngine.wav');
+        this.game.load.audio('crash', 'assets/tiresSqueal.wav');
+    }
+    
     var background;
     var player;
     var playerEngine;
@@ -35,19 +48,6 @@ window.onload = function() {
     var gameoverText;
     var scoreText;
     var score = 0;
-    
-    function preload() 
-    {
-        this.game.load.image('road', 'assets/road.jpg');
-        this.game.load.image('car', 'assets/car.png');
-        this.game.load.image('candy', 'assets/candycane.png');
-        this.game.load.image('redcar', 'assets/redbadcar.png');
-        this.game.load.image('bluecar', 'assets/bluebadcar.png');
-        this.game.load.image('greencar', 'assets/greenbadcar.png');
-        this.game.load.audio('carEngine', 'assets/carEngine.wav');
-        this.game.load.audio('crash', 'assets/tiresSqueal.wav');
-    }
-    
     
     function create() 
     {
@@ -74,6 +74,7 @@ window.onload = function() {
         //game.time.events.loop(Phaser.Timer.SECOND * 4, createCandy, this);
         
         scoreText = game.add.text(0, 0, 'Score: ' + score, { font: "40px Arial", fill: 'red' });
+        game.debug.body(candy);
     }
     
     function update() 
