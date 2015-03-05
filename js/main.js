@@ -67,7 +67,7 @@ window.onload = function() {
        // createCar();
         
         goal = game.add.group();
-        goal.enableBody = true;
+        //goal.enableBody = true;
         createCandy();
         
         game.time.events.loop(Phaser.Timer.SECOND * 2, createCar, this);
@@ -80,7 +80,7 @@ window.onload = function() {
     
     function update() 
     {
-    	game.physics.arcade.collide(player, goal, increasePoints, null, this);
+    	game.physics.arcade.overlap(player, goal, increasePoints, null, this);
     	game.physics.arcade.collide(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
