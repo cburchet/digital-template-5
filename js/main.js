@@ -23,6 +23,8 @@ window.onload = function() {
     
     var badCars;
     var cars;
+    
+    var gameoverText;
     function preload() 
     {
         this.game.load.image('road', 'assets/road.jpg');
@@ -57,6 +59,8 @@ window.onload = function() {
     
     function update() 
     {
+    	game.physics.arcade.collide(player, badCars, gameOver, null, this);
+    	
         this.background.tilePosition.y += 3;
         this.player.body.velocity.x = 0;
 	 
@@ -88,5 +92,11 @@ window.onload = function() {
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'greencar');
     	}
     	badCars.body.gravity.y = 100;
+    }
+    
+    function gameOver()
+    {
+	this.game.paused = true;
+	gameoverText = game.add.text(500, 300, 'Game Over', { fontSize: '128px', fill: 'red' });
     }
 };
