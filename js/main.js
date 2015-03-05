@@ -104,12 +104,12 @@ window.onload = function() {
     {
     	score++;
 	scoreText.text = 'Score: ' + score;
+	candy.destroy(true, true);
 	createCandy();
     }
     
     function createCandy()
     {
-    	candy.destroy(true, true);
     	candy = goal.create(game.rnd.integerInRange(0,750), -100, 'candy');   
     }
     
