@@ -64,6 +64,7 @@ window.onload = function() {
         
         cars = game.add.group();
         cars.enableBody = true;
+        createCar();
         
         goal = game.add.group();
         goal.enableBody = true;
@@ -78,7 +79,7 @@ window.onload = function() {
     function update() 
     {
     	game.physics.arcade.overlap(player, candy, increasePoints, null, this);
-    	game.physics.arcade.overlap(player, cars, delay, null, this);
+    	game.physics.arcade.collide(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         this.background.tilePosition.y += 3;
