@@ -138,6 +138,7 @@ window.onload = function() {
     function delay()
 	{
 		playerCrash = game.add.audio('crash');
+		playerCrash.volume = .2;
 		playerCrash.play();
 		game.add.tween(player.rotation).to( {angle: 45}, 2000, Phaser.Easing.Linear.None, false,0, 0, false);
 		game.time.events.add(Phaser.Timer.SECOND * 3, gameOver, this).autoDestroy = true;
