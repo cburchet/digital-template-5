@@ -66,10 +66,11 @@ window.onload = function() {
         cars.enableBody = true;
         
         goal = game.add.group();
-        goal.enableBody - true;
+        goal.enableBody = true;
+        createCandy();
         
         game.time.events.loop(Phaser.Timer.SECOND * 2, createCar, this);
-        game.time.events.loop(Phaser.Timer.SECOND * 4, createCandy, this);
+        //game.time.events.loop(Phaser.Timer.SECOND * 4, createCandy, this);
         
         scoreText = game.add.text(0, 0, 'Score: ' + score, { font: "40px Arial", fill: 'red' });
     }
