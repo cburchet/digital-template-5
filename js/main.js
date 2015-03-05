@@ -157,15 +157,15 @@ window.onload = function() {
     		}
     		if (carX < 300)
     		{
-    			obstacle.body.velocity.x = game.rnd.integerInRange(5, 15);
+    			badCars.body.velocity.x = game.rnd.integerInRange(5, 15);
     		}
     		else if (carX > 600)
     		{
-    			obstacle.body.velocity.x = game.rnd.integerInRange(-5, -15);
+    			badCars.body.velocity.x = game.rnd.integerInRange(-5, -15);
     		}
     		else 
     		{
-    			carX.body.velocity.x = game.rnd.integerInRange(-3, 3);
+    			badCars.body.velocity.x = game.rnd.integerInRange(-3, 3);
     		}
     		obstacle.body.gravity.y = speed + (score * .5);
     		badCars.body.gravity.y = speed + (score *.5);
