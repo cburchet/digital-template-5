@@ -123,7 +123,8 @@ window.onload = function() {
     
     function createCar()
     {
-    	for (numberCars; numberCars > 0; numberCars--)
+    	var i = numberCars;
+    	for (i; i > 0; i--)
     	{
     		var carColor = game.rnd.integerInRange(0,2);
     		if (carColor = 0)
