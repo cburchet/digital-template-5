@@ -18,14 +18,14 @@ window.onload = function() {
     
     function preload() 
     {
-        this.game.load.image('road', 'assets/road.jpg');
-        this.game.load.image('car', 'assets/car.png');
-        this.game.load.image('candy', 'assets/candycane.png');
-        this.game.load.image('redcar', 'assets/redbadcar.png');
-        this.game.load.image('bluecar', 'assets/bluebadcar.png');
-        this.game.load.image('greencar', 'assets/greenbadcar.png');
-        this.game.load.audio('carEngine', 'assets/carEngine.wav');
-        this.game.load.audio('crash', 'assets/tiresSqueal.wav');
+        game.load.image('road', 'assets/road.jpg');
+        game.load.image('car', 'assets/car.png');
+        game.load.image('candy', 'assets/candycane.png');
+        game.load.image('redcar', 'assets/redbadcar.png');
+        game.load.image('bluecar', 'assets/bluebadcar.png');
+        game.load.image('greencar', 'assets/greenbadcar.png');
+        game.load.audio('carEngine', 'assets/carEngine.wav');
+        game.load.audio('crash', 'assets/tiresSqueal.wav');
     }
     
     var background;
@@ -84,18 +84,18 @@ window.onload = function() {
     	game.physics.arcade.collide(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
-        this.background.tilePosition.y += 3;
-        this.player.body.velocity.x = 0;
+        background.tilePosition.y += 3;
+        player.body.velocity.x = 0;
 	 
 	if (cursors.left.isDown)
 	{
 		//  Move to the left
-		this.player.body.velocity.x = -300;
+		player.body.velocity.x = -300;
 	}
 	else if (cursors.right.isDown)
 	{
 		//  Move to the right
-		this.player.body.velocity.x = 300;
+		player.body.velocity.x = 300;
 	}
 	if (candy.body.position.y >= 700)
 	{
