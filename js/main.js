@@ -55,7 +55,7 @@ window.onload = function() {
         this.background = this.game.add.tileSprite(0, 0, 1000, 600, 'road');
         
         this.player = game.add.sprite(400, game.world.height - 160, 'car');
-        this.game.physics.enable(this.player);
+        this.game.physics.arcade.enable(this.player);
         playerEngine = game.add.audio('carEngine');
 	playerEngine.play('', 0, .1, true);
 	
@@ -78,7 +78,7 @@ window.onload = function() {
     
     function update() 
     {
-    	game.physics.arcade.overlap(player, goal, increasePoints, null, this);
+    	game.physics.arcade.collide(player, goal, increasePoints, null, this);
     	game.physics.arcade.collide(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
