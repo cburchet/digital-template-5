@@ -111,7 +111,7 @@ window.onload = function() {
     function createCandy()
     {
     	candy = goal.create(game.rnd.integerInRange(0,750), -100, 'candy');   
-    	candy.body.gravity.y = 100;
+    	candy.body.velocity.y = -100;
     }
     
     function createCar()
