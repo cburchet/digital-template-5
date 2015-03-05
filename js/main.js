@@ -77,8 +77,8 @@ window.onload = function() {
     
     function update() 
     {
-    	game.physics.arcade.overlap(player, candy.sprite, increasePoints, null, this);
-    	game.physics.arcade.overlap(player, cars.sprite, delay, null, this);
+    	game.physics.arcade.overlap(player, candy, increasePoints, null, this);
+    	game.physics.arcade.overlap(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         this.background.tilePosition.y += 3;
