@@ -78,7 +78,7 @@ window.onload = function() {
     function update() 
     {
     	game.physics.arcade.collide(player, candy, increasePoints, null, this);
-    	game.physics.arcade.collide(player, badCars, delay, null, this);
+    	game.physics.arcade.collide(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         this.background.tilePosition.y += 3;
