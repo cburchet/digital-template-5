@@ -118,20 +118,14 @@ window.onload = function() {
     
     function createCar()
     {
-    	var carColor = game.rnd.integerInRange(0,2);
-    	if (carColor == 0)
+    	var i = score;
+    	for (i / 5; i > 0; i--)
     	{
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'redcar');
-    	}
-    	else if (carColor == 1)
-    	{
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'bluecar');
-    	}
-    	else if (carColor == 2)
-    	{
     		badCars = cars.create(game.rnd.integerInRange(0,750), -100, 'greencar');
+    		badCars.body.gravity.y = speed + (score *.5);
     	}
-    	badCars.body.gravity.y = speed + (score *5);
     }
     
     function delay()
