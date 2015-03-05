@@ -55,7 +55,7 @@ window.onload = function() {
         this.background = this.game.add.tileSprite(0, 0, 1000, 600, 'road');
         
         this.player = game.add.sprite(400, game.world.height - 160, 'car');
-        this.game.physics.arcade.enable(this.player);
+        this.game.physics.enable(this.player);
         playerEngine = game.add.audio('carEngine');
 	playerEngine.play('', 0, .1, true);
 	
