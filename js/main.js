@@ -24,6 +24,7 @@ window.onload = function() {
         game.load.image('redcar', 'assets/redbadcar.png');
         game.load.image('bluecar', 'assets/bluebadcar.png');
         game.load.image('greencar', 'assets/greenbadcar.png');
+        game.load.image('rock', 'assets/boulder.png');
         game.load.audio('carEngine', 'assets/carEngine.wav');
         game.load.audio('crash', 'assets/tiresSqueal.wav');
     }
@@ -38,14 +39,13 @@ window.onload = function() {
     
     var cursors;
     
-   // var level = 1;
-   var speed = 100;
+    var speed = 100;
     var badCars;
     var cars;
     var numberCars = 1;
     
     var obstacle;
-    
+    var obstacles;
     
     var gameoverText;
     var scoreText;
@@ -66,7 +66,8 @@ window.onload = function() {
         
         cars = game.add.group();
         cars.enableBody = true;
-       // createCar();
+        obstacles = game.add.group();
+        obstacles.enableBody = true;
         
         goal = game.add.group();
         goal.enableBody = true;
@@ -137,8 +138,23 @@ window.onload = function() {
     		}
     		else if (carColor = 2)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'greencar');
+    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'greencar')
     		}
+    		var rockX = game.rnd.integerInRange(0,750);
+    		obstacle = obstacles.create(rockX, game.rnd.integerInRange(75, 200) * -1, 'greencar');
+    		if (rockX < 300)
+    		{
+    			obstacle.body.velocity.x = 15;
+    		}
+    		else if (rockX > 600)
+    		{
+    			obstacle.body.velocity.x = -15;
+    		}
+    		else 
+    		{
+    			obstacle.body.velocity.x = 3;
+    		}
+    		obstacle.body.gravity.y = speed + (score * .5);
     		badCars.body.gravity.y = speed + (score *.5);
     	}
     }
