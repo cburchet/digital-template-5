@@ -34,7 +34,7 @@ window.onload = function() {
     
     var gameoverText;
     var scoreText;
-    var score;
+    var score = 0;
     
     function preload() 
     {
