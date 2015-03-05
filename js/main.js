@@ -45,7 +45,7 @@ window.onload = function() {
         this.game.load.image('bluecar', 'assets/bluebadcar.png');
         this.game.load.image('greencar', 'assets/greenbadcar.png');
         this.game.load.audio('carEngine', 'assets/carEngine.wav');
-        this.game.load.audio('crash', 'assets/tireSqueal.wav');
+        this.game.load.audio('crash', 'assets/tiresSqueal.wav');
     }
     
     
@@ -77,7 +77,7 @@ window.onload = function() {
     function update() 
     {
     	game.physics.arcade.collide(player, goal, increasePoints, null, this);
-    	game.physics.arcade.collide(player, badCars, delay, null, this);
+    	game.physics.arcade.collide(player, cars, delay, null, this);
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         this.background.tilePosition.y += 3;
