@@ -18,21 +18,34 @@ window.onload = function() {
     var background;
     var player;
     var playerEngine;
+    var playerCrash;
+    
+    var candy;
+    var goal;
     
     var cursors;
     
+   // var level = 1;
     var badCars;
     var cars;
     
+    var obstacle;
+    
+    
     var gameoverText;
+    var scoreText;
+    var score;
+    
     function preload() 
     {
         this.game.load.image('road', 'assets/road.jpg');
         this.game.load.image('car', 'assets/car.png');
+        this.game.load.image('candy', 'assets/candycane.png');
         this.game.load.image('redcar', 'assets/redbadcar.png');
         this.game.load.image('bluecar', 'assets/bluebadcar.png');
         this.game.load.image('greencar', 'assets/greenbadcar.png');
         this.game.load.audio('carEngine', 'assets/carEngine.wav');
+        this.game.load.audio('crash', 'assets/tireSqueal.wav');
     }
     
     
@@ -45,35 +58,58 @@ window.onload = function() {
         this.game.physics.arcade.enable(this.player);
         playerEngine = game.add.audio('carEngine');
 	playerEngine.play('', 0, .1, true);
+	
         
         cursors = game.input.keyboard.createCursorKeys();
         
         cars = game.add.group();
         cars.enableBody = true;
         
+        goal = game.add.group();
+        goal.enableBody - true;
         
         game.time.events.loop(Phaser.Timer.SECOND * 2, createCar, this);
+        game.time.events.loop(Phaser.Timer.SECOND * 4, createCandy, this);
         
-        
+        scoreText = game.add.text(0, 0, 'Score: ' + score, { font: "40px Arial", fill: 'red' });
     }
     
     function update() 
     {
-    	game.physics.arcade.collide(player, badCars, gameOver, null, this);
+    	game.physics.arcade.collide(player, goal, increasePoints, null, this);
+    	game.physics.arcade.collide(player, badCars, delay, null, this);
+    	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         this.background.tilePosition.y += 3;
         this.player.body.velocity.x = 0;
 	 
-		if (cursors.left.isDown)
-		{
-			//  Move to the left
-			this.player.body.velocity.x = -300;
-		}
-		else if (cursors.right.isDown)
-		{
-			//  Move to the right
-			this.player.body.velocity.x = 300;
-		}
+	if (cursors.left.isDown)
+	{
+		//  Move to the left
+		this.player.body.velocity.x = -300;
+	}
+	else if (cursors.right.isDown)
+	{
+		//  Move to the right
+		this.player.body.velocity.x = 300;
+	}
+	if (candy.body.position.y >= 700)
+	{
+		createCandy();
+	}
+    }
+    
+    function increasePoints()
+    {
+    	score++;
+	scoreText.text = 'Score: ' + score;
+	createCandy();
+    }
+    
+    function createCandy()
+    {
+    	candy.destroy(true, true);
+    	candy = goal.create(game.rnd.integerInRange(0,750), -100, 'candy');   
     }
     
     function createCar()
@@ -94,8 +130,17 @@ window.onload = function() {
     	badCars.body.gravity.y = 100;
     }
     
+    function delay()
+	{
+		playerCrash = game.add.audio('crash');
+		playerCrash.play();
+		game.add.tween(player.rotation).to( {angle: 45}, 2000, Phaser.Easing.Linear.None, false,0, 0, false);
+		game.time.events.add(Phaser.Timer.SECOND * 3, gameOver, this).autoDestroy = true;
+	}
+    
     function gameOver()
     {
+    	
 	this.game.paused = true;
 	gameoverText = game.add.text(500, 300, 'Game Over', { fontSize: '128px', fill: 'red' });
     }
