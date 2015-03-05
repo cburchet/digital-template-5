@@ -67,15 +67,13 @@ window.onload = function() {
        // createCar();
         
         goal = game.add.group();
-        //goal.enableBody = true;
+        goal.enableBody = true;
         createCandy();
         
         game.time.events.loop(Phaser.Timer.SECOND * 2, createCar, this);
         //game.time.events.loop(Phaser.Timer.SECOND * 4, createCandy, this);
         
         scoreText = game.add.text(0, 0, 'Score: ' + score, { font: "40px Arial", fill: 'red' });
-        game.debug.body(candy);
-        game.debug.body(player);
     }
     
     function update() 
@@ -85,6 +83,7 @@ window.onload = function() {
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         background.tilePosition.y += 3;
+        candy.body.y -= 3;
         player.body.velocity.x = 0;
 	 
 	if (cursors.left.isDown)
@@ -114,7 +113,6 @@ window.onload = function() {
     function createCandy()
     {
     	candy = goal.create(game.rnd.integerInRange(0,750), -100, 'candy');   
-    	candy.body.velocity.y = 100;
     }
     
     function createCar()
