@@ -129,15 +129,15 @@ window.onload = function() {
     		var carColor = game.rnd.integerInRange(0,2);
     		if (carColor = 0)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(100, 200) * -1, 'redcar');	
+    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'redcar');	
     		}
     		else if (carColor = 1)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(100, 200) * -1, 'bluecar');
+    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'bluecar');
     		}
     		else if (carColor = 2)
     		{
-    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(100, 200) * -1, 'greencar');
+    			badCars = cars.create(game.rnd.integerInRange(0,750), game.rnd.integerInRange(75, 300) * -1, 'greencar');
     		}
     		badCars.body.gravity.y = speed + (score *.5);
     	}
