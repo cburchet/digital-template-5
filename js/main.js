@@ -83,7 +83,7 @@ window.onload = function() {
     	//game.physics.arcade.collide(player, obstacle, delay, null, this);
     	
         background.tilePosition.y += 3;
-        candy.body.y -= 3;
+        candy.body.y += 3;
         player.body.velocity.x = 0;
 	 
 	if (cursors.left.isDown)
